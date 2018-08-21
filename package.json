@@ -1,0 +1,73 @@
+{
+  "name": "xpx2-sdk",
+  "version": "0.0.1",
+  "description": "Proximax typescript javascript sdk",
+  "scripts": {
+    "pretest": "npm run build",
+    "test": "mocha --ui bdd --recursive ./dist/test --timeout 90000",
+    "test:e2e": "mocha --ui bdd --recursive ./dist/e2e --timeout 90000",
+    "test:all": "mocha --ui bdd --recursive ./dist/ --timeout 90000",
+    "build": "rm -rf dist/ && tsc",
+    "test:cov": "nyc --reporter=lcov --reporter=text-lcov npm test && nyc report --reporter=text-lcov",
+    "test:coveralls": "npm run test:cov | coveralls"
+  },
+  "contributors": [
+    {
+      "name": "Promimax"
+    }
+  ],
+  "bugs": "https://github.com/proximax-storage/xpx2-typescript-sdk/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/proximax-storage/xpx2-typescript-sdk.git"
+  },
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/proximax-storage/xpx2-typescript-sdk#readme",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "devDependencies": {
+    "@types/chai": "^4.1.4",
+    "@types/lodash": "^4.14.116",
+    "@types/mocha": "^5.2.5",
+    "@types/request": "^2.47.1",
+    "@types/request-promise-native": "^1.0.15",
+    "@types/utf8": "^2.1.6",
+    "@types/ws": "^6.0.0",
+    "assert": "~1.4.1",
+    "chai": "4.1.2",
+    "coveralls": "^3.0.2",
+    "mocha": "^5.2.0",
+    "nyc": "^12.0.2",
+    "ts-mockito": "^2.3.0",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.11.0",
+    "typescript": "^2.9.2",
+    "typescript-require": "^0.2.10"
+  },
+  "dependencies": {
+    "ipfs-api": "^24.0.0",
+    "js-joda": "1.9.1",
+    "nem2-sdk": "^0.10.1",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5",
+    "rxjs": "^6.2.2",
+    "rxjs-compat": "^6.2.2",
+    "utf8": "^3.0.0",
+    "ws": "^6.0.0"
+  },
+  "peerDependencies": {
+    "js-joda": "1.9.1",
+    "utf8": "^3.0.0",
+    "rxjs": "^6.2.2"
+  },
+  "nyc": {
+    "exclude": [
+      "**/*.spec.js"
+    ]
+  },
+  "browser": {
+    "glob": false,
+    "fs": false,
+    "net": false
+  }
+}
